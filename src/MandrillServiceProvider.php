@@ -13,7 +13,7 @@ class MandrillServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app('mailer')->getSwiftMailer()->extend('mandrill', function () {
+        app('mailer')->getSwiftMailer()->extend('mandrill', function () {
             return TransportFactory::mandrill(
                 $this->app['config']->get('services.mandrill', [])
             );
